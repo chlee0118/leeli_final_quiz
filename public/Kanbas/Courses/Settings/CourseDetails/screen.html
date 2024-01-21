@@ -1,0 +1,199 @@
+<table>
+    <tbody>
+      <tr>
+        <td valign="top">
+            <ul>
+                <li><a href="/Kanbas/Account/Navigation/index.html">
+                   Account</a></li>
+                <li>
+                 <a href="/Kanbas/Dashboard/screen.html">Dashboard</a>
+                </li>
+                <li>
+                 <a href="/Kanbas/Courses/Home/screen.html">Courses</a>
+                </li>
+                <li>
+                 <a href="/Kanbas/Calendar/index.html">Calendar</a></li>
+                <li><a href="/Kanbas/Inbox/index.html">Inbox</a></li>
+                <li><a href="/Kanbas/History/index.html">History</a></li>
+                <li><a href="/Kanbas/Studio/index.html">Studio</a></li>
+                <li><a href="/Kanbas/Commons/index.html">Commons</a></li>
+                <li><a href="/Kanbas/Help/index.html">Help</a></li>
+            </ul>
+               
+        </td>
+        <td valign="top">
+            <ul>
+                <li>
+                  <a href="/Kanbas/Courses/Home/screen.html">
+                    Home</a></li>
+                <li><a href="/Kanbas/Courses/Modules/screen.html">
+                    Modules</a></li>
+                <li><a href="/Kanbas/Courses/Piazza/index.html">
+                    Piazza</a></li>
+                <li><a href="/Kanbas/Courses/Assignments/screen.html">
+                    Assignments</a></li>
+                <li><a href="/Kanbas/Courses/Quizzes/screen.html">Quizzes</a></li>
+                <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+                <li><a href="/Kanbas/Courses/People/screen.html">People</a></li>
+                <li><a href="/Kanbas/Courses/PanoptoVideos/screen.html">Panopto Videos</a></li>
+                <li><a href="/Kanbas/Courses/Discussions/screen.html">Discussions</a></li>
+                <li><a href="/Kanbas/Courses/Announcements/screen.html">Announcements</a></li>
+                <li><a href="/Kanbas/Courses/Pages/screen.html">Pages</a></li>
+                <li><a href="/Kanbas/Courses/Files/screen.html">Files</a></li>
+                <li><a href="/Kanbas/Courses/Rubrics/screen.html">Rubrics</a></li>
+                <li><a href="/Kanbas/Courses/Outcomes/screen.html">Outcomes</a></li>
+                <li><a href="/Kanbas/Courses/Collaborations/screen.html">Collaborations</a></li>
+                <li><a href="/Kanbas/Courses/Syllabus/screen.html">Syllabus</a></li>
+                <li><a href="/Kanbas/Courses/Settings/screen.html">Settings</a></li>
+             </ul>
+              
+        </td>
+        <td>
+            <button onclick="location.href = '/Kanbas/Courses/Settings/CourseDetails/screen.html';" id="CourseDetails" class="float-left submit-button" >Course Details</button>
+            <button>Sections</button>
+            <button onclick="location.href = '/Kanbas/Courses/Settings/CourseNavigations/screen.html';" id="CourseNavigations" class="float-left submit-button" >Navigation</button>
+            <button>Apps</button>
+            <button>Feature Options</button>
+            <button>Integrations</button>
+            <h1>Course Details</h1>
+            <table>
+                <tr>
+                    <td><b>Images: </b></td>
+                    <td>
+                    <button>Choose Image</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Name: </b></td>
+                    <td>CS5610 12631 Web Development SEC 07 Fall 2024</td>
+                </tr>
+                <tr>
+                    <td><b>Course Code: </b></td>
+                    <td>CS5610 ####</td>
+                </tr>
+                <tr>
+                    <td><b>Blueprint Course:  </b></td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td><b>Course Template: </b></td>
+                    <td>
+                        <input type="checkbox" id="wd-enable-course-template"/>
+                        <label for="wd-enable-course-template">Enable course as a Course Template</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Time Zone: </b></td>
+                    <td>
+                    <select>
+                        <option>Eastern Time(US & Canada) (-05:00/ -04:00)</option>
+                    </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>SIS ID: </b></td>
+                    <td>CS5610.#####.######</td>
+                </tr>
+                <tr>
+                    <td><b>Subaccount: </b></td>
+                    <td><a href="#">CS Graduate</a></td>
+                </tr>
+                <tr>
+                    <td><b>Term: </b></td>
+                    <td>2024 Fall</td>
+                </tr>
+                <tr>
+                    <td><b>Participation</b></td>
+                    <td><select>
+                        <option>Term</option>
+                    </select><br />
+                    <text>Course participation is limited to <b>term</b> start and end dates.</text><br />
+                    <b>Start</b><br />
+                    <input name="wd-start" type="date" value="2021-01-01"/><br />
+                    <b>End</b><br /> 
+                    <input name="wd-restrict-start" type="date" value="2021-01-01"/><br />
+                    <input type="checkbox" id="wd-restrict-start"/>
+                    <label for="wd-restrict-end">Restrict students from viewing course before term start date</label><br />
+                    <input type="checkbox" id="wd-restrict-end"/>
+                    <label for="wd-restrict-end">Restrict students from viewing course after term end date</label><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Default due time: </b></td>
+                    <td>
+                        <select>
+                            <option>Account default (11:59pm)</option>
+                        </select><br />
+                        <text>This will override any user/system language preferences. This is only recommended for foreign language courses</text>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>File Storage: </b></td>
+                    <td>10000 megabytes</td>
+                </tr>
+                <tr>
+                    <td><b>Large Course: </b></td>
+                    <td><input type="checkbox" id="wd-large-course"/>
+                        <label for="wd-large-course">Launch SpeedGrader Filtered by Student Group</label><br /></td>
+                </tr>
+                <tr>
+                    <td><b>Grading Scheme: </b></td>
+                    <td>
+                        <input type="checkbox" id="wd-grading-scheme"/>
+                        <label for="wd-grading-scheme">Enable course grading scheme</label><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>License: </b></td>
+                    <td>
+                        <select>
+                            <option>Private(Copyrighted)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>File Copyright: </b></td>
+                    <td>
+                        <input type="checkbox" id="wd-file-copyright"/>
+                        <label for="wd-file-copyright">Copyright and license information must be provided for files before they are published</label><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Visibility: </b></td>
+                    <td>
+                        <text>If you need to make your course public please contact your administrator/support.</text><br />
+                        <select>
+                            <option>Course</option>
+                        </select><br />
+                        <input type="checkbox" id="wd-course-visibility"/>
+                        <label for="wd-course-visibility">Include this course in the public course index</label><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Format: </b></td>
+                    <td>
+                        <select>
+                            <option>On-Campus</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Mastery Paths: </b></td>
+                    <td>
+                        <input type="checkbox" id="wd-mastery-paths"/>
+                        <label for="wd-mastery-paths">Enable individual learning paths for students based on assessment</label><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Description: </b></td>
+                    <td>
+                        <textarea></textarea><br />
+                        <a href="#">more options</a>
+                    </td>
+                </tr>
+            </table>
+            <button>Update Course Details</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
