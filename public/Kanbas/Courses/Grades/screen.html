@@ -2,23 +2,34 @@
     <tbody>
       <tr>
         <td valign="top">
-            <ul>
-                <li><a href="/Kanbas/Account/Navigation/index.html">
-                   Account</a></li>
-                <li>
-                 <a href="/Kanbas/Dashboard/screen.html">Dashboard</a>
-                </li>
-                <li>
-                 <a href="/Kanbas/Courses/Home/screen.html">Courses</a>
-                </li>
-                <li>
-                 <a href="/Kanbas/Calendar/index.html">Calendar</a></li>
-                <li><a href="/Kanbas/Inbox/index.html">Inbox</a></li>
-                <li><a href="/Kanbas/History/index.html">History</a></li>
-                <li><a href="/Kanbas/Studio/index.html">Studio</a></li>
-                <li><a href="/Kanbas/Commons/index.html">Commons</a></li>
-                <li><a href="/Kanbas/Help/index.html">Help</a></li>
-            </ul>
+            <html>
+                <head>
+                  <link rel="stylesheet" href="/Kanbas/styles.css" />
+                  <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+                  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.css"
+                        rel="stylesheet"/>
+                </head>
+                <body>
+                  <ul class="wd-kanbas-navigation">
+                    <li><a href="http://northeastern.edu">N</a></li>
+                    <li><a href="/Kanbas/Account/Profile/screen.html"><i class="fa fa-user" style="color: white"></i>Account</a></li>
+                    <li class="wd-active">
+                      <a href="/Kanbas/Dashboard/screen.html">
+                        <i class="fa fa-tachometer"></i> Dashboard</a>
+                    </li>
+                    <li><a href="/Kanbas/Courses/Home/screen.html"><i class="fa fa-book"></i>Courses</a> </li>
+                    <li><a href="#"><i class="fa fa-calendar"></i> Calendar</a></li>
+                    <li><a href="#"><i class="fa fa-inbox"></i><br />Inbox</a></li>
+                    <li><a href="#"><i class="fa fa-clock"></i>History</a></li>
+                    <li><a href="#"><i class="fa fa-computer"></i>Studio</a></li>
+                    <li><a href="#"><i class="fa-brands fa-creative-commons"></i>Commons</a></li>
+                    <li><a href="#"><i class="fa fa-circle-info"></i><br />Help</a></li>
+                  </ul>
+                </body>
+              </html>
+              
+
+              
                
         </td>
         <td valign="top">
@@ -49,70 +60,102 @@
               
         </td>
         <td>
-            <body>
+            <html>
 
-                <div class="button-container">
-                    <select id="Gradebook">
-                        <option value="all">Gradebook</option>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <select>
+                        <option>Gradebook</option>
+                        <option>Change Gradebook View</option>
+                        <option>Traditional Gradebook</option>
+                        <option>Individual Gradebook</option>
                     </select>
-                    <button type="button">Import</button>
-                    <select id="Export">
-                        <option value="all">Export</option>
+                </td>
+                <td>
+                    <button>Shortcuts</button>
+                    <button>Import</button>
+                    <select>
+                        <option>Export</option>
+                        <option>Export Current Gradebook View</option>
+                        <option>Export Entire Gradebook</option>
                     </select>
-                    <button type="button">Configure</button>
-                </div>
-                <h1>Student Names</h1>
-                <form id="text-fields">
-                    <input id="text-fields-studentNames" placeholder="Search Students"/><br/>
-                <h1>Assignments Names</h1>
-                <form id="text-fields">
-                    <input id="text-fields-assignmentsNames" placeholder="Search Assignments"/><br/>
-                <button type="button">Apply Filters</button>
-                <table border="2" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Student Names<br></th>
-                            <th>A1<br></th>
-                            <th>A2<br></th>
-                            <th>A3<br></th>
-                            <th>A4<br></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Student 1<br></td>
-                            <td>80<br></td>
-                            <td>100<br></td>
-                            <td>70<br></td>
-                            <td>89<br></td>
-                        </tr>
-                        <tr>
-                            <td>Student 2<br></td>
-                            <td>98<br></td>
-                            <td>75<br></td>
-                            <td>100<br></td>
-                            <td>100<br></td>
-                        </tr>
-                        <tr>
-                            <td>Student 3<br></td>
-                            <td>100<br></td>
-                            <td>79<br></td>
-                            <td>90<br></td>
-                            <td>90<br></td>
-                        </tr>
-                        <tr>
-                            <td>Student 4<br></td>
-                            <td>100<br></td>
-                            <td>100<br></td>
-                            <td>100<br></td>
-                            <td>100<br></td>
-                        </tr>
-                    </tbody>
-                </table>
-            
-                 
-            
-            </body>
+                    <button>Configure</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Student Names</h4>
+                    <input placeholder="Search Students" /><br />
+                    <select>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h4>Assignment Names</h4>
+                    <input placeholder="Search Assignments" /><br />
+                    <select>
+                        <option>A1</option>
+                        <option>A2</option>
+                        <option>Q1</option>
+                        <option>E1</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button>Apply Filters</button>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>A1 SETUP<br />Out of 100</th>
+                <th>A2 HTML<br />Out of 100</th>
+                <th>Q1 QUIZ<br />Out of 100</th>
+                <th>E1 EXAM<br />Out of 100</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>A</td>
+            <td>88%</td>
+            <td>100%</td>
+            <td>90%</td>
+            <td><input value="100" /></td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>100%</td>
+            <td><input value="100" /></td>
+            <td>100%</td>
+            <td>95%</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>100%</td>
+            <td>100%</td>
+            <td><input value="100" /></td>
+            <td>90%</td>
+        </tr>
+        <tr>
+            <td>D</td>
+            <td><input value="100" /></td>
+            <td>100%</td>
+            <td>100%</td>
+            <td>100%</td>
+        </tr>
+    </table>
+</body>
+
+</html>
         </td>
       </tr>
     </tbody>
