@@ -26,3 +26,6 @@
   flex-direction: row;
   align-items: center;
 }
+.table {
+  border-collapse: collapse;
+}

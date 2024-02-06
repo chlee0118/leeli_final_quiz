@@ -1,165 +1,265 @@
-<table>
-    <tbody>
-      <tr>
-        <td valign="top">
-            <html>
+<head>
+    <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/Labs/a2/index.css" />
+    <link rel="stylesheet" type="text/css" href="/Kanbas/styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" type="text/css"
+        href="/Kanbas/Courses/Modules/index.css" />
+    <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+    <link rel="stylesheet" type="text/css"
+        href="/Kanbas/Courses/Navigation/index.css" />
+    <link
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.css"
+        rel="stylesheet" />
+    <style>
+    .list-group,
+    .list-group-item {
+        border-radius: 0 !important;
+        /* Remove rounded corners */
+    }
+
+    .green-border {
+        border-left: 2px solid #28a745;
+        /* Green border */
+    }
+
+
+</style>
+</head>
+<div class="d-block d-md-none">Top Nav Bar</div>
+<div class="wd-flex-row-container">
+    <div class="wd-bg-color-black d-none d-md-block">
+        <ul class="wd-kanbas-navigation">
+            <li><a href="http://northeastern.edu">N</a></li>
+            <li><a href="/Kanbas/Account/Profile/screen.html"><i
+                        class="fa fa-user"
+                        style="color: white"></i>Account</a>
+            </li>
+            <li>
+                <a href="/Kanbas/Dashboard/screen.html">
+                    <i class="fa fa-tachometer"></i> Dashboard</a>
+            </li>
+            <li class="wd-active"><a href="/Kanbas/Courses/Home/screen.html"><i
+                        class="fa fa-book"></i>Courses</a> </li>
+            <li><a href="#"><i class="fa fa-calendar"></i>
+                    Calendar</a></li>
+            <li><a href="#"><i
+                        class="fa fa-inbox"></i><br />Inbox</a></li>
+            <li><a href="#"><i class="fa fa-clock"></i>History</a></li>
+            <li><a href="#"><i
+                        class="fa fa-computer"></i>Studio</a></li>
+            <li><a href="#"><i
+                        class="fa-brands fa-creative-commons"></i>Commons</a></li>
+            <li><a href="#"><i
+                        class="fa fa-circle-info"></i><br />Help</a></li>
+        </ul>
+    </div>
+    <div class=" wd-flex-grow-1">
+        <div class="wd-flex-row-container">
+            <div class="d-none d-md-block"
+                style="margin-left: 10px; margin-right: 20px; margin-top: 12px;"><i
+                    class="fa fa-bars fa-2x" style="color: red;"
+                    aria-hidden="true"></i></div>
+            <div class="d-none d-md-block" style="margin-top: 15px;">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a
+                                href="#">CourseNameTermSection</a></li>
+                        <li class="breadcrumb-item active"
+                            aria-current="page">Grades</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="d-none d-md-block wd-flex-grow-1"
+                style="margin-top: 5px; margin-bottom: 5px; ">
+                <button class="btn"
+                    style="margin-right: 10px;float: right;margin-top: 8px; border-radius: 3px;
+                    border-color: black">
+                    Student View</button>
+            </div>
+        </div>
+
+        <hr />
+        <div class="wd-flex-row-container">
+
+            <div
+                class="list-group wd-course-navigation d-none d-md-block">
+
                 <head>
-                  <link rel="stylesheet" href="/Kanbas/styles.css" />
-                  <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
-                  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.css"
-                        rel="stylesheet"/>
+                    <link rel="stylesheet" href="/Kanbas/styles.css" />
+                    <link rel="stylesheet"
+                        href="/Kanbas/Courses/Navigation/index.css" />
                 </head>
-                <body>
-                  <ul class="wd-kanbas-navigation">
-                    <li><a href="http://northeastern.edu">N</a></li>
-                    <li><a href="/Kanbas/Account/Profile/screen.html"><i class="fa fa-user" style="color: white"></i>Account</a></li>
-                    <li class="wd-active">
-                      <a href="/Kanbas/Dashboard/screen.html">
-                        <i class="fa fa-tachometer"></i> Dashboard</a>
+
+                <ul class="wd-navigation">
+                    <li>
+                        <a href="/Kanbas/Courses/Home/screen.html">
+                            Home</a>
                     </li>
-                    <li><a href="/Kanbas/Courses/Home/screen.html"><i class="fa fa-book"></i>Courses</a> </li>
-                    <li><a href="#"><i class="fa fa-calendar"></i> Calendar</a></li>
-                    <li><a href="#"><i class="fa fa-inbox"></i><br />Inbox</a></li>
-                    <li><a href="#"><i class="fa fa-clock"></i>History</a></li>
-                    <li><a href="#"><i class="fa fa-computer"></i>Studio</a></li>
-                    <li><a href="#"><i class="fa-brands fa-creative-commons"></i>Commons</a></li>
-                    <li><a href="#"><i class="fa fa-circle-info"></i><br />Help</a></li>
-                  </ul>
-                </body>
-              </html>
-              
-               
-        </td>
-        <td valign="top">
-            <head>
-                <link rel="stylesheet" href="/Kanbas/styles.css" />
-                <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css" />
-            </head>
-            <ul class="wd-navigation">
-                <li>
-                <a href="/Kanbas/Courses/Home/screen.html">
-                    Home</a></li>
-                <li class="wd-active"><a href="/Kanbas/Courses/Modules/screen.html">
-                    Modules</a></li>
-                <li><a href="/Kanbas/Courses/Piazza/index.html">
-                    Piazza</a></li>
-                <li><a href="/Kanbas/Courses/Assignments/screen.html">
-                    Assignments</a></li>
-                <li><a href="/Kanbas/Courses/Quizzes/screen.html">Quizzes</a></li>
-                <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
-                <li><a href="/Kanbas/Courses/People/screen.html">People</a></li>
-                <li><a href="/Kanbas/Courses/PanoptoVideos/screen.html">Panopto Videos</a></li>
-                <li><a href="/Kanbas/Courses/Discussions/screen.html">Discussions</a></li>
-                <li><a href="/Kanbas/Courses/Announcements/screen.html">Announcements</a></li>
-                <li><a href="/Kanbas/Courses/Pages/screen.html">Pages</a></li>
-                <li><a href="/Kanbas/Courses/Files/screen.html">Files</a></li>
-                <li><a href="/Kanbas/Courses/Rubrics/screen.html">Rubrics</a></li>
-                <li><a href="/Kanbas/Courses/Outcomes/screen.html">Outcomes</a></li>
-                <li><a href="/Kanbas/Courses/Collaborations/screen.html">Collaborations</a></li>
-                <li><a href="/Kanbas/Courses/Syllabus/screen.html">Syllabus</a></li>
-                <li><a href="/Kanbas/Courses/Settings/screen.html">Settings</a></li>
-            </ul>
-              
-        </td>
-        <td>
-            <html>
+                    <li><a
+                            href="/Kanbas/Courses/Modules/screen.html">
+                            Modules</a></li>
+                    <li><a href="/Kanbas/Courses/Piazza/index.html">
+                            Piazza</a></li>
+                    <li><a
+                            href="/Kanbas/Courses/Assignments/screen.html">
+                            Assignments</a></li>
+                    <li><a
+                            href="/Kanbas/Courses/Quizzes/screen.html">Quizzes</a></li>
+                    <li class="wd-active"><a
+                            href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+                    <li><a
+                            href="/Kanbas/Courses/People/screen.html">People</a></li>
+                    <li><a
+                            href="/Kanbas/Courses/PanoptoVideos/screen.html">Panopto
+                            Videos</a></li>
+                    <li><a
+                            href="/Kanbas/Courses/Discussions/screen.html">Discussions</a></li>
+                    <li><a
+                            href="/Kanbas/Courses/Announcements/screen.html">Announcements</a></li>
+                    <li><a
+                            href="/Kanbas/Courses/Pages/screen.html">Pages</a></li>
+                    <li><a
+                            href="/Kanbas/Courses/Files/screen.html">Files</a></li>
+                    <li><a
+                            href="/Kanbas/Courses/Rubrics/screen.html">Rubrics</a></li>
+                    <li><a
+                            href="/Kanbas/Courses/Outcomes/screen.html">Outcomes</a></li>
+                    <li><a
+                            href="/Kanbas/Courses/Collaborations/screen.html">Collaborations</a></li>
+                    <li><a
+                            href="/Kanbas/Courses/Syllabus/screen.html">Syllabus</a></li>
+                    <li><a
+                            href="/Kanbas/Courses/Settings/screen.html">Settings</a></li>
+                </ul>
+            </div>
 
-<body>
-    <table>
-        <tbody>
-            <tr>
-                <td>
-                    <select>
-                        <option>Gradebook</option>
-                        <option>Change Gradebook View</option>
-                        <option>Traditional Gradebook</option>
-                        <option>Individual Gradebook</option>
-                    </select>
-                </td>
-                <td>
-                    <button>Shortcuts</button>
-                    <button>Import</button>
-                    <select>
-                        <option>Export</option>
-                        <option>Export Current Gradebook View</option>
-                        <option>Export Entire Gradebook</option>
-                    </select>
-                    <button>Configure</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h4>Student Names</h4>
-                    <input placeholder="Search Students" /><br />
-                    <select>
-                        <option>A</option>
-                        <option>B</option>
-                        <option>C</option>
-                        <option>D</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h4>Assignment Names</h4>
-                    <input placeholder="Search Assignments" /><br />
-                    <select>
-                        <option>A1</option>
-                        <option>A2</option>
-                        <option>Q1</option>
-                        <option>E1</option>
-                    </select>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+            <body>
+                <div class="wd-flex-grow-1" style="margin-left: 5px;">
+                    <div class="wd-flex-row-container wd-flex-grow-1"
+                        style="float: right; margin-bottom: 5px;">
+                        <div><button class="btn"
+                                style="border-color:black;border-radius:3px;margin-right: 10px;">
+                                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                Import
+                            </button></div>
+                        <div><button class="btn"
+                                style="border-color:black;border-radius:3px;margin-right: 10px;">
+                                <i class="fa fa-sign-out"
+                                    aria-hidden="true"></i>
+                                Export
+                            </button></div>
+                        <button class="btn" style="margin-right: 10px;">
+                            <i class="fa fa-cog" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <hr
+                        style="margin-left: 10px; margin-top: 20px;color: transparent;" />
 
-    <button>Apply Filters</button>
+                    <div class="wd-flex-row-container">
+                        <div class="col-6" style="margin-right: 10px;">
+                            Student Names
+                        </div>
+                        <div style="margin-left:1px">
+                            Assignment Names
+                        </div>
+                    </div>
+                    <div class="wd-flex-row-container">
+                        <div class="col-6" style="margin-right: 10px;">
+                            <input style="width: -webkit-fill-available;"
+                                title="SeachStudents"
+                                placeholder="Search Students" />
+                        </div>
+                        <div>
+                            <input style="width: -webkit-fill-available;"
+                                title="SearchAssignments"
+                                placeholder="Search Assignments" />
+                        </div>
+                    </div>
+                    <div class="wd-flex-row-container"
+                        style="margin-right: 5px;margin-left: 5px;margin-top: 10px;margin-bottom: 10px;">
+                        <button class="btn"
+                            style="margin-right: 5px;border-color:black;border-radius:3px;">
+                            <i class="fa fa-filter" aria-hidden="true"></i>
+                            Apply Filters
+                        </button></div>
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Student Name</th>
-                <th>A1 SETUP<br />Out of 100</th>
-                <th>A2 HTML<br />Out of 100</th>
-                <th>Q1 QUIZ<br />Out of 100</th>
-                <th>E1 EXAM<br />Out of 100</th>
-            </tr>
-        </thead>
-        <tr>
-            <td>A</td>
-            <td>88%</td>
-            <td>100%</td>
-            <td>90%</td>
-            <td><input value="100" /></td>
-        </tr>
-        <tr>
-            <td>B</td>
-            <td>100%</td>
-            <td><input value="100" /></td>
-            <td>100%</td>
-            <td>95%</td>
-        </tr>
-        <tr>
-            <td>C</td>
-            <td>100%</td>
-            <td>100%</td>
-            <td><input value="100" /></td>
-            <td>90%</td>
-        </tr>
-        <tr>
-            <td>D</td>
-            <td><input value="100" /></td>
-            <td>100%</td>
-            <td>100%</td>
-            <td>100%</td>
-        </tr>
-    </table>
-</body>
+                    <div class="table-responsive"
+                        style="margin-right: 5px;margin-left: 5px;">
+                        <table
+                            class="table table-striped table-hover table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>Gradebook</option>
+                                            <option>Change Gradebook
+                                                View</option>
+                                            <option>Traditional
+                                                Gradebook</option>
+                                            <option>Individual
+                                                Gradebook</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button>Shortcuts</button>
+                                        <button>Import</button>
+                                        <select>
+                                            <option>Export</option>
+                                            <option>Export Current Gradebook
+                                                View</option>
+                                            <option>Export Entire
+                                                Gradebook</option>
+                                        </select>
+                                        <button>Configure</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-</html>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
+                        <table
+                            class="table table-striped table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Student Name</th>
+                                    <th>A1 SETUP<br />Out of 100</th>
+                                    <th>A2 HTML<br />Out of 100</th>
+                                    <th>Q1 QUIZ<br />Out of 100</th>
+                                    <th>E1 EXAM<br />Out of 100</th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td>A</td>
+                                <td>88%</td>
+                                <td>100%</td>
+                                <td>90%</td>
+                                <td><input value="100" /></td>
+                            </tr>
+                            <tr>
+                                <td>B</td>
+                                <td>100%</td>
+                                <td><input value="100" /></td>
+                                <td>100%</td>
+                                <td>95%</td>
+                            </tr>
+                            <tr>
+                                <td>C</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                                <td><input value="100" /></td>
+                                <td>90%</td>
+                            </tr>
+                            <tr>
+                                <td>D</td>
+                                <td><input value="100" /></td>
+                                <td>100%</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </body>
+        </div>
+    </div>
+</div>
