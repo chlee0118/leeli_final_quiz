@@ -17,6 +17,7 @@ function ModuleList() {
         </select>
         <button type="button">Module</button>
       </div>
+      <hr />
       <ul className="list-group wd-modules">
         {modulesList.map((module) => (
           <li

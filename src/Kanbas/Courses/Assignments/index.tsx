@@ -9,6 +9,9 @@ function Assignments() {
 
   return (
     <>
+            <div
+          className="overflow-y-scroll position-fixed bottom-0 end-0"
+          style={{ left: "320px", top: "250px" }} >
         <div
             className="d-flex justify-content-between align-items-center">
             <form className="form-inline">
@@ -45,6 +48,7 @@ function Assignments() {
           </ul>
         </li>
       </ul>
+      </div>
     </>
 );}
 export default Assignments;
