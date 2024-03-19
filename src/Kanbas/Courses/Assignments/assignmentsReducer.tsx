@@ -53,6 +53,6 @@ export const {
   deleteAssignment,
   updateAssignment,
   selectAssignment,
-  setAssignment,
+  setAssignment
 } = assignmentsSlice.actions;
 export default assignmentsSlice.reducer;

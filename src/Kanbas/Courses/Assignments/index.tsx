@@ -3,7 +3,7 @@ import { FaCheckCircle, FaEllipsisV, FaPlusCircle } from "react-icons/fa";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"; // Use useSelector to access Redux store state
 import { KanbasState } from "../../store";
-import { addAssignment, deleteAssignment, selectAssignment } from "./assignmentsReducer";
+import { addAssignment, deleteAssignment, selectAssignment, setAssignment } from "./assignmentsReducer";
 
 function Assignments() {
   const { courseId } = useParams();
