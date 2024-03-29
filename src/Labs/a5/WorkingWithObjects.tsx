@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
 function WorkingWithObjects() {
   const [assignment, setAssignment] = useState({
     id: 1,
@@ -16,10 +18,39 @@ function WorkingWithObjects() {
     course: "Web Development",
   });
   const MODULE_URL = "http://localhost:4000/a5/module";
+  const fetchAssignment = async () => {
+    const response = await axios.get(`${ASSIGNMENT_URL}`);
+    setAssignment(response.data);
+  };
+  const updateTitle = async () => {
+    const response = await axios.get(
+      `${ASSIGNMENT_URL}/title/${assignment.title}`
+    );
+    setAssignment(response.data);
+  };
+  useEffect(() => {
+    fetchAssignment();
+  }, []);
+
   return (
     <div>
       <h3>Working With Objects</h3>
       <h4>Modifying Properties</h4>
+      <h3>Modifying Properties</h3>
+      <input
+        onChange={(e) =>
+          setAssignment({
+            ...assignment,
+            title: e.target.value,
+          })
+        }
+        value={assignment.title}
+        type="text"
+      />
+      <br />
+      <button className="btn btn-warning btn-sm" onClick={updateTitle}>Update Title to: {assignment.title}</button>
+      <button className="btn btn-success btn-sm mx-1" onClick={fetchAssignment}>Fetch Assignment</button>
+
       <h5>Modifying Assignment Title</h5>
       <a
         className="btn btn-primary"
@@ -45,7 +76,7 @@ function WorkingWithObjects() {
         }
       />
       <a
-        className="btn btn-primary"
+        className="btn btn-primary mx-2"
         href={`${ASSIGNMENT_URL}/score/${assignment.score}`}
       >
         Update Score
@@ -61,14 +92,14 @@ function WorkingWithObjects() {
       />
       <br />
       <a
-        className="btn btn-primary"
+        className="btn btn-primary mx-2"
         href={`${ASSIGNMENT_URL}/completed/${assignment.completed}`}
       >
         Update Completion
       </a>
       <br />
       <h5>Modifying Module Name</h5>
-      <a className="btn btn-primary" href={`${MODULE_URL}/name/${module.name}`}>
+      <a className="btn btn-primary mx-2" style={{marginBottom:10}}href={`${MODULE_URL}/name/${module.name}`}>
         Update Module Name
       </a>
       <br />
@@ -78,21 +109,21 @@ function WorkingWithObjects() {
         onChange={(e) => setModule({ ...module, name: e.target.value })}
       />
       <h4>Retrieving Objects</h4>
-      <a className="btn btn-primary" href="http://localhost:4000/a5/assignment">
+      <a className="btn btn-primary mx-2" href="http://localhost:4000/a5/assignment">
         Get Assignment
       </a>
-      <a className="btn btn-primary" href="http://localhost:4000/a5/module">
+      <a className="btn btn-primary mx-2" href="http://localhost:4000/a5/module">
         Get Module
       </a>
       <h4>Retrieving Properties</h4>
       <a
-        className="btn btn-primary"
+        className="btn btn-primary mx-2"
         href="http://localhost:4000/a5/assignment/title"
       >
         Get Title
       </a>
       <a
-        className="btn btn-primary"
+        className="btn btn-primary mx-2"
         href="http://localhost:4000/a5/module/name"
       >
         Get Module Name
