@@ -10,7 +10,15 @@ function WorkingWithArrays() {
     due: "2021-09-09",
     completed: false,
   });
-  const [todos, setTodos] = useState<{ id: number; title: string; description: string; due: string; completed: boolean; }[]>([]);
+  const [todos, setTodos] = useState<
+    {
+      id: number;
+      title: string;
+      description: string;
+      due: string;
+      completed: boolean;
+    }[]
+  >([]);
 
   const fetchTodos = async () => {
     const response = await axios.get(API);
@@ -40,10 +48,32 @@ function WorkingWithArrays() {
     const response = await axios.post(API, todo);
     setTodos([...todos, response.data]);
   };
-
+  const [errorMessage, setErrorMessage] = useState(null);
+  const deleteTodo = async (todo) => {
+    try {
+      const response = await axios.delete(`${API}/${todo.id}`);
+      setTodos(todos.filter((t) => t.id !== todo.id));
+    } catch (error) {
+      console.log(error);
+      setErrorMessage(error.response.data.message);
+    }
+  };
+  const updateTodo = async () => {
+    try {
+      const response = await axios.put(`${API}/${todo.id}`, todo);
+      setTodos(todos.map((t) => (t.id === todo.id ? todo : t)));
+    } catch (error) {
+      console.log(error);
+      setErrorMessage(error.response.data.message);
+    }
+  };
 
   return (
     <div>
+      {errorMessage && (
+        <div className="alert alert-danger mb-2 mt-2">{errorMessage}</div>
+      )}
+
       <h3>Working with Arrays</h3>
       <h4>Todos</h4>
       <button
@@ -61,38 +91,78 @@ function WorkingWithArrays() {
       >
         Update Title
       </button>
-      <br/>
-      <input style={{ marginBottom: 10 }} type="text" value={todo.title}
-                onChange={(e) => setTodo({
-                    ...todo, title: e.target.value
-                })} />
-            <br />
-            <textarea style={{ marginBottom: 10 }} value={todo.description}
-                onChange={(e) => setTodo({
-                    ...todo,
-                    description: e.target.value
-                })} />
-            <br />
-            <input style={{ marginBottom: 10 }} value={todo.due} type="date"
-                onChange={(e) => setTodo({
-                    ...todo, due: e.target.value
-                })} />
-            <br />
-            <label>
-                <input style={{ marginBottom: 10 }} value={todo.completed.toString()} type="checkbox"
-                    onChange={(e) => setTodo({
-                        ...todo, completed: e.target.checked
-                    })} />
-                Completed
-            </label>
-            <br />
-      <button style={{ marginBottom: 10 }} className="mx-3 btn btn-warning" onClick={postTodo}> Post Todo </button>
+      <br />
+      <button
+        className="mx-3 btn btn-secondary"
+        style={{ marginBottom: 10 }}
+        onClick={updateTodo}
+      >
+        Update Todo
+      </button>
+      <br />
+      <input
+        style={{ marginBottom: 10 }}
+        type="text"
+        value={todo.title}
+        onChange={(e) =>
+          setTodo({
+            ...todo,
+            title: e.target.value,
+          })
+        }
+      />
+      <br />
+      <textarea
+        style={{ marginBottom: 10 }}
+        value={todo.description}
+        onChange={(e) =>
+          setTodo({
+            ...todo,
+            description: e.target.value,
+          })
+        }
+      />
+      <br />
+      <input
+        style={{ marginBottom: 10 }}
+        value={todo.due}
+        type="date"
+        onChange={(e) =>
+          setTodo({
+            ...todo,
+            due: e.target.value,
+          })
+        }
+      />
+      <br />
+      <label>
+        <input
+          style={{ marginBottom: 10 }}
+          value={todo.completed.toString()}
+          type="checkbox"
+          onChange={(e) =>
+            setTodo({
+              ...todo,
+              completed: e.target.checked,
+            })
+          }
+        />
+        Completed
+      </label>
+      <br />
+      <button
+        style={{ marginBottom: 10 }}
+        className="mx-3 btn btn-warning"
+        onClick={postTodo}
+      >
+        {" "}
+        Post Todo{" "}
+      </button>
 
       <ul>
         {todos.map((todo) => (
           <li key={todo.id} style={{ marginBottom: 10 }}>
-            <input checked={todo.completed}
-              type="checkbox" readOnly />
+            <input checked={todo.completed} type="checkbox" readOnly />
             {todo.title}
             <p>{todo.description}</p>
             <p>{todo.due}</p>
@@ -105,10 +175,11 @@ function WorkingWithArrays() {
             </button>
 
             <button
-              className="mx-3 btn btn-danger btn-sm"
-              onClick={() => removeTodo(todo)}
+              onClick={() => deleteTodo(todo)}
+              className="btn btn-danger ms-2"
+              style={{ marginRight: 10 }}
             >
-              Remove
+              Delete
             </button>
 
             {todo.title}
