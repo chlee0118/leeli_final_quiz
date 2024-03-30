@@ -8,11 +8,6 @@ const initialState = {
     _id: "",
     title: "",
     course: "",
-    description: "",
-    points: 0,
-    dueDate: "",
-    availableFromDate: "",
-    availableUntilDate: "",
   },
 };
 
