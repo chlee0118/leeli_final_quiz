@@ -1,13 +1,23 @@
-import React from "react";
-import { FaCheckCircle, FaEllipsisV, FaPlusCircle } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import {
+  FaCheckCircle,
+  FaEllipsisV,
+  FaPlusCircle,
+} from "react-icons/fa";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux"; // Use useSelector to access Redux store state
+import { useSelector, useDispatch } from "react-redux";
 import { KanbasState } from "../../store";
-import { addAssignment, deleteAssignment, selectAssignment, setAssignment } from "./assignmentsReducer";
+import { deleteAssignment, setAssignments, setAssignment } from "./assignmentsReducer";
+import * as client from "./client";
 
 function Assignments() {
   const { courseId } = useParams();
   const dispatch = useDispatch();
+  useEffect(() => {
+    client
+      .findAssignmentsForCourse(courseId)
+      .then((modules) => dispatch(setAssignments(modules)));
+  }, [courseId, dispatch]);
   const navigate = useNavigate();
   const assignmentList = useSelector(
     (state: KanbasState) => state.assignmentsReducer.assignments
@@ -18,7 +28,12 @@ function Assignments() {
   const handleAddAssignmentClick = () => {
     navigate(`/Kanbas/Courses/${courseId}/Assignments/new`);
   };
-
+  const handleDelete = (assignmentId: string) => {
+    const isConfirmed = window.confirm("Delete?");
+    if (isConfirmed) {
+      dispatch(deleteAssignment(assignmentId));
+    }
+  };
 
   return (
     <>
@@ -59,23 +74,30 @@ function Assignments() {
               </span>
             </div>
             <ul className="list-group">
-              {assignmentList.filter((assignment) => assignment.course == courseId).map((assignment, index) => (
-                <li className="list-group-item" key={index}> 
-                  <FaEllipsisV className="me-2" />
-                  <Link
-                   to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}>{assignment.title}</Link>
-                  <span className="float-end">
-                  <button
-                    className="button-red"
-                    onClick={() => dispatch(deleteAssignment(assignment._id))}
-                  >
-                    Delete
-                  </button>
-                    <FaCheckCircle className="text-success" />
-                    <FaEllipsisV className="ms-2" />
-                  </span>
-                </li>
-              ))}
+              {assignmentList
+                .filter((assignment) => assignment.course == courseId)
+                .map((assignment, index) => (
+                  <li className="list-group-item" key={index}>
+                    <FaEllipsisV className="me-2" />
+                    <Link
+                      style={{ textDecoration: "none", color: "black" }}
+                      onClick={() => dispatch(setAssignment(assignment))}
+                      to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
+                    >
+                      {assignment.title}
+                    </Link>
+                    <span className="float-end">
+                      <button
+                        className="btn btn-danger btn-sm mx-2"
+                        onClick={() => handleDelete(assignment._id)}
+                      >
+                        Delete
+                      </button>
+                      <FaCheckCircle className="text-success" />
+                      <FaEllipsisV className="ms-2" />
+                    </span>
+                  </li>
+                ))}
             </ul>
           </li>
         </ul>
