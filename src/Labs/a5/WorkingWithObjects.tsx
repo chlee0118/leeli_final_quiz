@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function WorkingWithObjects() {
+  const API_BASE = process.env.REACT_APP_API_BASE;
   const [assignment, setAssignment] = useState({
     id: 1,
     title: "NodeJS Assignment",
@@ -10,14 +11,15 @@ function WorkingWithObjects() {
     completed: false,
     score: 0,
   });
-  const ASSIGNMENT_URL = "http://localhost:4000/a5/assignment";
+  const ASSIGNMENT_URL = `${API_BASE}/a5/assignment`
+  const MODULE_URL = `${API_BASE}/a5/module`
+
   const [module, setModule] = useState({
     id: 1,
     name: "NodeJS Module",
     description: "Create a NodeJS Module",
     course: "Web Development",
   });
-  const MODULE_URL = "http://localhost:4000/a5/module";
   const fetchAssignment = async () => {
     const response = await axios.get(`${ASSIGNMENT_URL}`);
     setAssignment(response.data);
@@ -109,22 +111,22 @@ function WorkingWithObjects() {
         onChange={(e) => setModule({ ...module, name: e.target.value })}
       />
       <h4>Retrieving Objects</h4>
-      <a className="btn btn-primary mx-2" href="http://localhost:4000/a5/assignment">
+      <a className="btn btn-primary mx-2" href={`${ASSIGNMENT_URL}`}>
         Get Assignment
       </a>
-      <a className="btn btn-primary mx-2" href="http://localhost:4000/a5/module">
+      <a className="btn btn-primary mx-2" href={`${MODULE_URL}`}>
         Get Module
       </a>
       <h4>Retrieving Properties</h4>
       <a
         className="btn btn-primary mx-2"
-        href="http://localhost:4000/a5/assignment/title"
+        href={`${ASSIGNMENT_URL}/title`}
       >
         Get Title
       </a>
       <a
         className="btn btn-primary mx-2"
-        href="http://localhost:4000/a5/module/name"
+        href={`${MODULE_URL}/name`}
       >
         Get Module Name
       </a>
