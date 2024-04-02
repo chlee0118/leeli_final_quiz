@@ -1,7 +1,7 @@
 import axios from "axios";
 const API_BASE = process.env.REACT_APP_API_BASE;
-const COURSES_API = `${API_BASE}/api/courses`;
-const ASSIGNMENTS_API = `${API_BASE}/api/assignments`;
+const COURSES_API = "https://webdev-1.onrender.com/api/courses";
+const ASSIGNMENTS_API = "https://webdev-1.onrender.com/api/assignments";
 
 export const findAssignmentsForCourse = async (courseId) => {
     const response = await axios
