@@ -9,6 +9,7 @@ function EncodingParametersInURLs() {
   const [result, setResult] = useState(0);
   const fetchSum = async (a: number, b: number) => {
     const response = await axios.get(`${API_BASE}/a5/add/${a}/${b}`);
+    setResult(response.data);
   };
   const fetchSubtraction = async (a: number, b: number) => {
     const response = await axios.get(`${API_BASE}/a5/subtract/${a}/${b}`);
