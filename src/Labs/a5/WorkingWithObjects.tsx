@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+const API_BASE = process.env.REACT_APP_API_BASE;
 
 function WorkingWithObjects() {
-  const API_BASE = process.env.REACT_APP_API_BASE;
   const [assignment, setAssignment] = useState({
     id: 1,
     title: "NodeJS Assignment",
