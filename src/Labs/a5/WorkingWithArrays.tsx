@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-const API_BASE = "https://webdev-1.onrender.com/";
+const API_BASE = "https://webdev-1.onrender.com";
 
 function WorkingWithArrays() {
   

@@ -1,7 +1,7 @@
 import EncodingParametersInURLs from "./EncodingParametersInURLs";
 import WorkingWithObjects from "./WorkingWithObjects";
 import WorkingWithArrays from "./WorkingWithArrays";
-const API_BASE = "https://webdev-1.onrender.com/";
+const API_BASE = "https://webdev-1.onrender.com";
 function Assignment5() {
   
   return (
