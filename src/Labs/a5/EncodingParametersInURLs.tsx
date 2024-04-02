@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-const API_BASE = process.env.REACT_APP_API_BASE;
+const API_BASE = "https://webdev-1.onrender.com/";
 
 function EncodingParametersInURLs() {
 
