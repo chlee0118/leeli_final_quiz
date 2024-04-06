@@ -1,5 +1,4 @@
 import axios from "axios";
-const API_BASE = process.env.REACT_APP_API_BASE;
 const COURSES_API = "https://webdev-1.onrender.com/api/courses";
 const ASSIGNMENTS_API = "https://webdev-1.onrender.com/api/assignments";
 
@@ -27,3 +26,4 @@ export const updateAssignment = async (assignment: any) => {
     const response = await axios.put(`${ASSIGNMENTS_API}/${assignment._id}`, assignment);
     return response.data;
 };
+
