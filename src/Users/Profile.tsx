@@ -1,3 +1,4 @@
+import React from "react";
 import * as client from "./client";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,9 +12,14 @@ export default function Profile() {
     email: "",
     role: "USER",
   });
+  
   const navigate = useNavigate();
   const save = async () => {
     await client.updateUser(profile);
+  };
+  const signout = async () => {
+    await client.signout();
+    navigate("/Kanbas/Account/Signin");
   };
   const fetchProfile = async () => {
     const account = await client.profile();
@@ -90,9 +96,11 @@ export default function Profile() {
             <option value="STUDENT">Student</option>
           </select>
           <br />
-          <button className="btn btn-success" onClick={save}>
+          <button style={{ marginBottom: 10 }} className="btn btn-success" onClick={save}>
             Save
           </button>
+          <br />
+          <button className="btn btn-danger" onClick={signout}>Signout</button>
         </div>
       )}
     </div>

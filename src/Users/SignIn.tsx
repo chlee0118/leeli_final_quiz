@@ -11,6 +11,7 @@ export default function Signin() {
     await client.signin(credentials);
     navigate("/Kanbas/Account/Profile");
   };
+  const signup = async () => {navigate("/Kanbas/Account/Signup");};
   return (
     <div>
       <h1>Signin</h1>
@@ -20,7 +21,9 @@ export default function Signin() {
       <input style={{marginBottom:10}} type="password" value={credentials.password} onChange={(e) =>
         setCredentials({ ...credentials, password: e.target.value })} placeholder="password"/>
     <br />
-      <button className="btn btn-primary" onClick={signin}> Signin </button>
+      <button style={{marginBottom:10}} className="btn btn-primary" onClick={signin}> Signin </button>
+    <br />
+      <button className="btn btn-primary" onClick={signup}> Go to Signup </button>
     </div>
   );
 }

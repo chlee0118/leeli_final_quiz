@@ -1,6 +1,10 @@
 import axios from "axios";
 export const BASE_API = "http://localhost:4000";
 export const USERS_API = `${BASE_API}/api/users`;
+const api = axios.create({
+  withCredentials: true,
+});
+
 export interface User {
   _id: string;
   username: string;
@@ -10,11 +14,11 @@ export interface User {
   lastName: string;
 }
 export const signin = async (credentials: User) => {
-  const response = await axios.post(`${USERS_API}/signin`, credentials);
+  const response = await api.post(`${USERS_API}/signin`, credentials);
   return response.data;
 };
 export const profile = async () => {
-  const response = await axios.post(`${USERS_API}/profile`);
+  const response = await api.post(`${USERS_API}/profile`);
   return response.data;
 };
 export const updateUser = async (user: any) => {
@@ -43,6 +47,16 @@ export const findUsersByRole = async (role: string) => {
     axios.get(`${USERS_API}?role=${role}`);
   return response.data;
 };
+export const signup = async (user) => {
+  const response = await api.post(`${USERS_API}/signup`, user);
+  return response.data;
+};
+export const signout = async () => {
+  const response = await api.post(`${USERS_API}/signout`);
+  return response.data;
+};
+
+
 
 
 
