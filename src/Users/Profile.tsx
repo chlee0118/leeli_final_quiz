@@ -28,6 +28,7 @@ export default function Profile() {
   useEffect(() => {
     fetchProfile();
   }, []);
+  
   return (
     <div>
       <h1>Profile</h1>
