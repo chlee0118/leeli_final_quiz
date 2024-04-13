@@ -22,29 +22,29 @@ export const profile = async () => {
   return response.data;
 };
 export const updateUser = async (user: any) => {
-  const response = await axios.put(`${USERS_API}/${user._id}`, user);
+  const response = await api.put(`${USERS_API}/${user._id}`, user);
   return response.data;
 };
 export const findAllUsers = async () => {
-  const response = await axios.get(`${USERS_API}`);
+  const response = await api.get(`${USERS_API}`);
   return response.data;
 };
 export const createUser = async (user: any) => {
-  const response = await axios.post(`${USERS_API}`, user);
+  const response = await api.post(`${USERS_API}`, user);
   return response.data;
 };
 export const deleteUser = async (user: any) => {
-  const response = await axios.delete(
+  const response = await api.delete(
     `${USERS_API}/${user._id}`);
   return response.data;
 };
 export const findUserById = async (id: string) => {
-  const response = await axios.get(`${USERS_API}/${id}`);
+  const response = await api.get(`${USERS_API}/${id}`);
   return response.data;
 };
 export const findUsersByRole = async (role: string) => {
   const response = await
-    axios.get(`${USERS_API}?role=${role}`);
+    api.get(`${USERS_API}?role=${role}`);
   return response.data;
 };
 export const signup = async (user) => {
