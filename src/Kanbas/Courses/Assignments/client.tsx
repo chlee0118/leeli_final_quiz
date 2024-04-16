@@ -1,6 +1,7 @@
 import axios from "axios";
-const COURSES_API = "https://kanbas-node-server-app-1-2zms.onrender.com/api/courses";
-const ASSIGNMENTS_API = "https://kanbas-node-server-app-1-2zms.onrender.com/api/assignments";
+const BASE_API = process.env.REACT_APP_API_BASE;
+const COURSES_API = `${BASE_API}/api/courses`;
+const ASSIGNMENTS_API = `${BASE_API}/api/assignments`;
 
 export const findAssignmentsForCourse = async (courseId) => {
     const response = await axios

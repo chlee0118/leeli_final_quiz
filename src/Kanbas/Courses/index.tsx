@@ -13,7 +13,9 @@ import axios from "axios";
 
 function Courses({ courses }: { courses: any[]; }) {
   const { courseId } = useParams();
-  const COURSES_API = "https://kanbas-node-server-app-1-2zms.onrender.com/api/courses";
+  const BASE_API = process.env.REACT_APP_API_BASE;
+  const COURSES_API = `${BASE_API}/api/courses`;
+
   const [course, setCourse] = useState<any>({ _id: "" });
   const findCourseById = async (courseId?: string) => {
     const response = await axios.get(
@@ -25,7 +27,7 @@ function Courses({ courses }: { courses: any[]; }) {
     findCourseById(courseId);
   }, [courseId]);
 
-  const links = ["Home", "Modules", "Piazza", "Grades", "Assignments"];
+  const links = ["Home", "Modules", "Piazza", "Grades", "Assignments", "Quizzes"];
   const { pathname } = useLocation();
   const getCurrentPageName = () => {
     const currentPage = links.find(link => pathname.includes(link));
@@ -47,6 +49,7 @@ function Courses({ courses }: { courses: any[]; }) {
             <Route path="Assignments" element={<Assignments/>} />
             <Route path="Assignments/:assignmentId" element={<AssignmentEditor/>}/>
             <Route path="Grades" element={<Grades />} />
+            <Route path="Quizzes" />
           </Routes>
         </div>
       </div>
