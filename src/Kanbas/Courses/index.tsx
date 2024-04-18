@@ -9,6 +9,7 @@ import AssignmentEditor from "./Assignments/Editor";
 import Grades from "./Grades";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Quizzes from "./Quizzes";
 
 
 function Courses({ courses }: { courses: any[]; }) {
@@ -49,7 +50,7 @@ function Courses({ courses }: { courses: any[]; }) {
             <Route path="Assignments" element={<Assignments/>} />
             <Route path="Assignments/:assignmentId" element={<AssignmentEditor/>}/>
             <Route path="Grades" element={<Grades />} />
-            <Route path="Quizzes" />
+            <Route path="Quizzes/*" element={<Quizzes/>}/>
           </Routes>
         </div>
       </div>

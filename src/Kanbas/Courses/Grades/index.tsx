@@ -3,9 +3,7 @@ import { useParams } from "react-router-dom";
 
 function Grades() {
   const { courseId } = useParams();
-  // Filter assignments for the current course
   const filteredAssignments = assignments.filter((assignment) => assignment.course === courseId);
-  // Filter enrollments for the current course
   const enrolledStudents = enrollments.filter((enrollment) => enrollment.course === courseId);
 
   return (
