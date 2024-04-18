@@ -1,0 +1,54 @@
+<label for="wd-assignment-name">Assignments</label><br />
+<input value="A1" id="wd-assignment-name"/><br />
+<textarea>Just finish the assignment as required. </textarea><br />
+<table>
+    <table>
+        <tr>
+        <td>Points <input name="wd-points" value="100"/><br /></td>
+        </tr>
+    <tr>
+        <td>Assignment Group 
+            <select name = "wd-assignment-group">
+                <option>ASSIGNMENTS</option>
+                <option>QUIZZES</option>
+                <option>EXAMS</option>
+                <option>PROJECTS</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Submission Types</td>
+        <td>
+            <select name="wd-submission-types">
+                <option>Online</option>
+            </select><br />
+            <label> <b>Online Entry Option</b></label><br />
+            <input type="checkbox" name="wd-entry-options" id="wd-text-entry"/>
+            <label for="wd-text-entry">Text Entry</label><br />
+            <input type="checkbox" name="wd-entry-options" id="wd-website-url"/>
+            <label for="wd-website-url">Website URL</label><br />
+            <input type="checkbox" name="wd-entry-options" id="wd-media-recordings"/>
+            <label for="wd-media-recordings">Media Recordings</label><br />
+            <input type="checkbox" name="wd-entry-options" id="wd-student-annotation"/>
+            <label for="wd-student-annotation">Student Annotation</label><br />
+            <input type="checkbox" name="wd-entry-options" id="wd-file-upload"/>
+            <label for="wd-file-upload">File Upload</label><br />
+        </td>
+    </tr>
+    <tr>
+        <td>Assign <input name="wd-assign-to" value="Everyone"/><br /></td>
+    </tr>
+    <tr>
+        <td>
+            Due<br />
+            <input name="wd-due-date" type="date" value="2021-01-01"/><br />
+            Available From<br /> 
+            <input name="wd-available-from" type="date" value="2021-01-01"/><br />
+            Until<br />
+            <input name="wd-available-from" type="date" value="2021-01-01"/><br />
+        </td>
+    </tr>
+    </table>
+</table>
+<button>Cancel</button>
+<button>Save</button>

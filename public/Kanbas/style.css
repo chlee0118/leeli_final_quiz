@@ -1,0 +1,31 @@
+.wd-flex-row-container {
+  display: flex;
+  flex-direction: row;
+}
+.wd-flex-grow-1 {
+  flex-grow: 1;
+}
+.wd-flex-col1 {
+  flex: 0.5;
+  padding: 20px;
+}
+
+.wd-flex-col2 {
+  flex: 0.4;
+  padding: 10px;
+}
+.wd-flex-col3 {
+  flex: 0.4;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: end; 
+}
+.wd-flex-row-container-middle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.table {
+  border-collapse: collapse;
+}
