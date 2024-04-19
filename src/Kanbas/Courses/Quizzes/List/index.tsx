@@ -116,9 +116,7 @@ export default function QuizList() {
                     ) : (
                       <FaRocket className="text-secondary" style={{marginRight: 10}} />
                     )}
-                    <Link
-                      to={`/Kanbas/Courses/${courseId}/Quizzes/${quiz._id}`}
-                    >
+                    <Link to={`/Kanbas/Courses/${courseId}/Quizzes/${quiz._id}/details`}>
                       {quiz.title}
                     </Link>
                   </div>

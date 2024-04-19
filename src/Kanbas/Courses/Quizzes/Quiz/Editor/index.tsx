@@ -47,7 +47,7 @@ export default function QuizEditor({
         // Create a new quiz
         client.createQuiz(courseId, {...quizData, _id: undefined}).then(quiz => {
             setParentQuiz(quiz);
-            navigate(`/Kanbas/Courses/${courseId}/Quizzes/`, { replace: true });
+            navigate(`/Kanbas/Courses/${courseId}/Quizzes`, { replace: true });
         }).catch(error => {
             console.error("Failed to create new quiz:", error);
             alert("Failed to create new quiz.");
@@ -56,13 +56,13 @@ export default function QuizEditor({
         // Update existing quiz
         client.updateQuiz(quizData).then(() => {
             setParentQuiz(quizData);
-            navigate(`/Kanbas/Courses/${courseId}/Quizzes/${quizData._id}`, { replace: true });
+            navigate(`/Kanbas/Courses/${courseId}/Quizzes`, { replace: true });
         }).catch(error => {
             console.error("Failed to update quiz:", error);
             alert("Failed to update quiz.");
         });
     }
-};
+  };
 
   const handleCancel = () => {
     navigate(`/Kanbas/Courses/${courseId}/Quizzes`, { replace: true });

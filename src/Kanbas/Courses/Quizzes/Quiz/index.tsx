@@ -43,7 +43,8 @@ export default function Quiz() {
                 untilDate: new Date(),
                 courseId: courseId,
                 published: false,
-                _id: 'new'
+                _id: 'new',
+                questions: []
             };
             setQuiz(newQuiz);
         } else if (qid) {
