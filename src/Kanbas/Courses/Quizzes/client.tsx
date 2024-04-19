@@ -95,3 +95,8 @@ export const deleteQuestion = async (question: any) => {
   const response = await api.delete(`${QUESTIONS_API}/${question._id}`);
   return response.data;
 };
+
+export const findQuizzesByCourseId = async (courseId: string) => {
+  const response = await axios.get(`${COURSES_API}/${courseId}/quizzes`);
+  return response.data;
+};
