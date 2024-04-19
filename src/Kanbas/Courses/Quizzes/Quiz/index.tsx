@@ -24,6 +24,7 @@ export default function Quiz() {
         {
             _id: "",
             title: "",
+            description: "",
             quizType: "Graded Quiz",
             points: 0,
             assignmentGroup: "Quizzes",
@@ -62,7 +63,7 @@ export default function Quiz() {
             <Routes>
                 <Route path="/" />
                 <Route path="new" element={<QuizEditor quizData={quiz} setParentQuiz={setQuiz}/>}/>
-                <Route path="Edit" element={<QuizEditor quizData={quiz} setParentQuiz={setQuiz}/>} />
+                <Route path="/Edit" element={<QuizEditor quizData={quiz} setParentQuiz={setQuiz}/>} />
                 <Route path=":questionId/Edit" element={<QuestionEditor />} />
                 <Route path="Preview"  />
             </Routes>

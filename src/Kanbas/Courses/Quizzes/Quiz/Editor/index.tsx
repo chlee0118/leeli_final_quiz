@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { IQuiz, IQuestion } from "../../client";
 import * as client from "../../client";
+import { Editor } from "@tinymce/tinymce-react";
 import {
   addQuestion,
   deleteQuestion,
@@ -19,7 +20,6 @@ export default function QuizEditor({
   quizData: IQuiz;
   setParentQuiz: any;
 }) {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -32,13 +32,10 @@ export default function QuizEditor({
     (state: KanbasState) => state.questionsReducer.question
   );
 
-  // handle page load
   useEffect(() => {
-    client
-      .findQuestionsByQuizId(quizData._id)
-      .then((questions: IQuestion[]) => {
-        dispatch(setQuestions(questions));
-      });
+    client.findQuestionsByQuizId(qid).then((questions: IQuestion[]) => {
+      dispatch(setQuestions(questions));
+    });
   }, [qid]);
 
   const handleSave = async () => {
@@ -118,6 +115,27 @@ export default function QuizEditor({
                 setParentQuiz({ ...quizData, title: e.target.value })
               }
             />
+            <label htmlFor="quizDescription">Quiz Instructions: </label>
+            <Editor
+              apiKey="sopryxtxccca7va4j5jmvjw0zxswou9koakxuxxlcd0y90h7"
+              initialValue={quizData.description}
+              init={{
+                height: 200,
+                width: 500,
+                menubar: false,
+                plugins: [
+                  "advlist autolink lists link image charmap print preview anchor",
+                  "searchreplace visualblocks code fullscreen",
+                  "insertdatetime media table paste code help wordcount",
+                ],
+                toolbar:
+                  "undo redo | formatselect | " +
+                  "bold italic backcolor | alignleft aligncenter " +
+                  "alignright alignjustify | bullist numlist outdent indent | " +
+                  "removeformat | help",
+              }}
+              onEditorChange={(content) => setParentQuiz({...quizData, description: content})}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="selectQuizType">Quiz Type</label>
@@ -183,7 +201,7 @@ export default function QuizEditor({
             </label>
           </div>
           <div className="form-group">
-            <label htmlFor="quizTime">Time Limit</label>
+            <label htmlFor="quizTime">Time Limit (Minutes)</label>
             <input
               type="number"
               className="form-control"
@@ -388,10 +406,11 @@ export default function QuizEditor({
           </div>
         </div>
       )}
-      <button className="btn btn-primary" onClick={handleSave}>
+      <br />
+      <button className="btn btn-success" style={{marginRight:10}} onClick={handleSave}>
         Save
       </button>
-      <button className="btn btn-secondary" onClick={handlePreview}>
+      <button className="btn btn-secondary"style={{marginRight:10}}  onClick={handlePreview}>
         Preview
       </button>
       <button className="btn btn-danger" onClick={handleCancel}>

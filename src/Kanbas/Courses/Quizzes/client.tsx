@@ -12,6 +12,7 @@ const api = axios.create({
 export interface IQuiz {
   _id: string;
   title: string;
+  description: string;
   quizType: string;
   points: number;
   assignmentGroup: string;
@@ -76,8 +77,8 @@ export const createQuestion = async (question: any) => {
   return response.data;
 };
 
-export const findQuestionsByQuizId = async (quizId: any) => {
-  const response = await axios.get(`${QUIZZES_API}/${quizId}/questions`);
+export const findQuestionsByQuizId = async (qid: any) => {
+  const response = await axios.get(`${QUIZZES_API}/${qid}/questions`);
   return response.data;
 };
 
