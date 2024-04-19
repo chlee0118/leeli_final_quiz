@@ -24,38 +24,22 @@ export default function QuizList() {
   const [quizzesExist, setQuizzesExist] = useState<boolean>(false);
   const [selectedQuiz, setSelectedQuiz] = useState<IQuiz | null>(null);
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+  const filteredQuizzes = quizzes.filter((quiz) =>
+    quiz.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleAddQuizClick = () => {
     navigate(`/Kanbas/Courses/${courseId}/Quizzes/new`);
   };
   
   const handleNewQuiz = () => {
-    const defaultDate = new Date().getDate();
-
-    const newQuiz = {
-      title: "New Quiz",
-      quizType: "Graded Quiz",
-      points: 0,
-      assignmentGroup: "Quizzes",
-      shuffleAnswers: true,
-      timeLimit: 20,
-      multipleAttempts: false,
-      showCorrectAnswers: false,
-      accessCode: "",
-      oneQuestionAtATime: true,
-      webcamRequired: false,
-      lockQuestionsAfterAnswering: false,
-      dueDate: defaultDate,
-      availableDate: defaultDate,
-      untilDate: defaultDate,
-      courseId: courseId,
-      published: false,
-    };
-
-    client.createQuiz(courseId, newQuiz).then((q) => {
-      navigate(`/Kanbas/Courses/${courseId}/Quizzes/${q._id}/Edit`);
-    });
-  };
+  navigate(`/Kanbas/Courses/${courseId}/Quizzes/new`);
+};
 
   const handleEditQuiz = (quiz: IQuiz) => {
     navigate(`/Kanbas/Courses/${courseId}/Quizzes/${quiz._id}/Edit`);
@@ -67,7 +51,6 @@ export default function QuizList() {
     });
   };
 
-  // handle quiz publish
   const handlePublishQuiz = (quiz: IQuiz) => {
     const updatedQuiz = { ...quiz, published: !quiz.published };
     client.updateQuiz(updatedQuiz).then(() => {
@@ -89,26 +72,24 @@ export default function QuizList() {
   }, [quizzes]);
 
   return (
-    <div
-      className="overflow-y-scroll position-fixed bottom-0 end-0"
-      style={{ left: "320px", top: "250px" }}
-    >
+    <div className="overflow-y-scroll position-fixed bottom-0 end-0" style={{ left: "320px", top: "250px" }}>
         <div className="container">
                 <div className="d-flex justify-content-between align-items-center">
           <form className="form-inline">
             <input
               id="text-fields-SA"
               className="form-control"
-              placeholder="Search Assignment"
+              placeholder="Search Quizzes"
+              value={searchTerm}
+              onChange={handleSearchChange}
             />
           </form>
 
           <div className="float-end">
-
-            <button className="btn btn-primary float-end" onClick={handleNewQuiz}>
-          <FaPlus /> Quiz
-        </button>
             <button className="btn btn-outline-primary me-2"> ︙</button>
+            <button className="btn btn-primary float-end" onClick={handleNewQuiz}>
+              <FaPlus /> Quiz
+            </button>
           </div>
         </div>
 
@@ -116,7 +97,7 @@ export default function QuizList() {
       <ul className="list-group wd-modules">
           <li className="list-group-item">
             <div>
-              <FaEllipsisV className="me-2" /> ASSIGNMENT QUIZZES
+              <FaEllipsisV className="me-2" /> QUIZZES
               <span className="float-end">
                 <FaCheckCircle className="text-success" />
                 <FaPlusCircle className="ms-2" />

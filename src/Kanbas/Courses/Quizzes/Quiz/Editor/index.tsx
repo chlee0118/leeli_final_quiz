@@ -34,22 +34,39 @@ export default function QuizEditor({
 
   // handle page load
   useEffect(() => {
-    client
-      .findQuestionsByQuizId(quizData._id)
-      .then((questions: IQuestion[]) => {
-        dispatch(setQuestions(questions));
-      });
-  }, [qid]);
+    if (quizData._id && quizData._id !== 'new') { // Ensure quizData has a valid ID that isn't just 'new'
+      client.findQuestionsByQuizId(quizData._id)
+        .then((questions: IQuestion[]) => dispatch(setQuestions(questions)))
+        .catch(error => console.error("Failed to fetch questions for quiz:", error));
+    }
+  }, [quizData, dispatch]);
+
 
   const handleSave = async () => {
-    await client.updateQuiz(quizData).then((status) => {
-      setParentQuiz(quizData);
-      navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
-    });
-  };
+    if (!quizData._id || quizData._id === 'new') {
+        // Create a new quiz
+        client.createQuiz(courseId, {...quizData, _id: undefined}).then(quiz => {
+            setParentQuiz(quiz);
+            navigate(`/Kanbas/Courses/${courseId}/Quizzes/`, { replace: true });
+        }).catch(error => {
+            console.error("Failed to create new quiz:", error);
+            alert("Failed to create new quiz.");
+        });
+    } else {
+        // Update existing quiz
+        client.updateQuiz(quizData).then(() => {
+            setParentQuiz(quizData);
+            navigate(`/Kanbas/Courses/${courseId}/Quizzes/${quizData._id}`, { replace: true });
+        }).catch(error => {
+            console.error("Failed to update quiz:", error);
+            alert("Failed to update quiz.");
+        });
+    }
+};
 
-  const handleCancel = async () => {
-    navigate(`/Kanbas/Courses/${courseId}/Quizzes`);
+  const handleCancel = () => {
+    // Simply navigate back without saving
+    navigate(`/Kanbas/Courses/${courseId}/Quizzes`, { replace: true });
   };
 
   // handle new question creation
