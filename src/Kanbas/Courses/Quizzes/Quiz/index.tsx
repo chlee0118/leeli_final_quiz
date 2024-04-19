@@ -25,7 +25,6 @@ export default function Quiz() {
 
     useEffect(() => {
         if (qid === 'new') {
-            // Assuming you've corrected this part as per previous discussions
             const newQuiz = {
                 title: "New Quiz",
                 quizType: "Graded Quiz",
@@ -44,11 +43,10 @@ export default function Quiz() {
                 untilDate: new Date(),
                 courseId: courseId,
                 published: false,
-                _id: 'new'  // Ensure 'new' is explicitly set here
+                _id: 'new'
             };
             setQuiz(newQuiz);
         } else if (qid) {
-            // Fetch the quiz details if qid is not 'new'
             client.findQuizById(qid).then(fetchedQuiz => {
                 setQuiz(fetchedQuiz);
                 client.findQuestionsByQuizId(fetchedQuiz._id)

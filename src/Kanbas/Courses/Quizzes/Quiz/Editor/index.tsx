@@ -34,7 +34,7 @@ export default function QuizEditor({
 
   // handle page load
   useEffect(() => {
-    if (quizData._id && quizData._id !== 'new') { // Ensure quizData has a valid ID that isn't just 'new'
+    if (quizData._id && quizData._id !== 'new') {
       client.findQuestionsByQuizId(quizData._id)
         .then((questions: IQuestion[]) => dispatch(setQuestions(questions)))
         .catch(error => console.error("Failed to fetch questions for quiz:", error));
@@ -65,7 +65,6 @@ export default function QuizEditor({
 };
 
   const handleCancel = () => {
-    // Simply navigate back without saving
     navigate(`/Kanbas/Courses/${courseId}/Quizzes`, { replace: true });
   };
 
