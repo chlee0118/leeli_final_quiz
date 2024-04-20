@@ -40,7 +40,7 @@ export default function QuizPreview() {
   const choiceLetters = ["A", "B", "C", "D"];
 
   return (
-    <div>
+    <div className="overflow-y-scroll position-fixed bottom-0 end-0" style={{ left: "320px", top: "250px" }}>
       <h1>{quiz.title}</h1>
         <div style={{ background: 'lightcoral', color: 'white', padding: '10px', borderRadius: '5px', display: 'flex', alignItems: 'center' }}>
             <FaExclamationCircle style={{ marginRight: '10px' }} />
