@@ -29,6 +29,7 @@ export default function Quiz() {
                 title: "New Quiz",
                 quizType: "Graded Quiz",
                 points: 0,
+                description: "",
                 assignmentGroup: "Quizzes",
                 shuffleAnswers: false,
                 timeLimit: 20,

@@ -36,6 +36,7 @@ export default function QuizDetail() {
   }
 
   return (
+    <div className="overflow-y-scroll position-fixed bottom-0 end-0" style={{ left: "320px", top: "250px" }}>
     <div className="quiz-detail-container">
       <div className="quiz-detail-header">
         <div style={{ float: 'right' }}>
@@ -60,20 +61,23 @@ export default function QuizDetail() {
         <hr />
       </div>
       <h1>{quiz.title}</h1>
-      <div>Quiz Type: {quiz.quizType}</div>
-      <div>Points: {quiz.points}</div>
-      <div>Assignment Group: {quiz.assignmentGroup}</div>
-      <div>Shuffle Answers: {quiz.shuffleAnswers ? "Yes" : "No"}</div>
-      <div>Time Limit: {quiz.timeLimit} Minutes</div>
-      <div>Multiple Attempts: {quiz.multipleAttempts ? "Yes" : "No"}</div>
-      <div>Show Correct Answers: {quiz.showCorrectAnswers ? "Immediately" : "No"}</div>
-      <div>One Question at a Time: {quiz.oneQuestionAtATime ? "Yes" : "No"}</div>
-      <div>Webcam Required: {quiz.webcamRequired ? "Yes" : "No"}</div>
-      <div>Lock Questions After Answering: {quiz.lockQuestionsAfterAnswering ? "Yes" : "No"}</div>
-      <div>Due Date: {new Date(quiz.dueDate).toLocaleDateString()}</div>
-      <div>Available from: {new Date(quiz.availableDate).toLocaleDateString()}</div>
-      <div>Until: {new Date(quiz.untilDate).toLocaleDateString()}</div>
+      <div style={{font:"Helvetica", fontSize: "20px", marginLeft: 200}}>
+      <div><b>Quiz Type: </b> {quiz.quizType}</div>
+      <div><b>Points: </b> {quiz.points}</div>
+      <div><b>Assignment Group: </b> {quiz.assignmentGroup}</div>
+      <div><b>Shuffle Answers: </b> {quiz.shuffleAnswers ? "Yes" : "No"}</div>
+      <div><b>Time Limit: </b> {quiz.timeLimit} Minutes</div>
+      <div><b>Multiple Attempts: </b> {quiz.multipleAttempts ? "Yes" : "No"}</div>
+      <div><b>Show Correct Answers: </b> {quiz.showCorrectAnswers ? "Immediately" : "No"}</div>
+      <div><b>One Question at a Time: </b> {quiz.oneQuestionAtATime ? "Yes" : "No"}</div>
+      <div><b>Webcam Required: </b> {quiz.webcamRequired ? "Yes" : "No"}</div>
+      <div><b>Lock Questions After Answering: </b> {quiz.lockQuestionsAfterAnswering ? "Yes" : "No"}</div>
+      <div><b>Due Date: </b> {new Date(quiz.dueDate).toLocaleDateString()}</div>
+      <div><b>Available from: </b> {new Date(quiz.availableDate).toLocaleDateString()}</div>
+      <div><b>Until: </b> {new Date(quiz.untilDate).toLocaleDateString()}</div>
       </div>
+    </div>
+    </div>
     </div>
   );
 }

@@ -29,7 +29,6 @@ export interface IQuiz {
   untilDate: Date;
   courseId: string;
   published: boolean;
-  description?: string;
   questions: IQuestion[]; 
 }
 
