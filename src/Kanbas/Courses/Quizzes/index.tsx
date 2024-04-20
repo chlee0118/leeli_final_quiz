@@ -5,6 +5,7 @@ import Quiz from "./Quiz";
 import QuizList from "./List";
 import QuizEditor from "./Quiz/Editor";
 import QuizDetail from "./Details";
+import QuizPreview from "./Quiz/Preview";
 import * as client from './client';
 import { IQuiz } from './client';
 
@@ -59,8 +60,9 @@ export default function Quizzes() {
             <Routes>
                 <Route path="/" element={<QuizList />} />
                 <Route path=":qid/details" element={<QuizDetail />} />
-                <Route path=":qid/edit" element={<QuizEditorWrapper />} /> {/* Updated line */}
+                <Route path=":qid/edit" element={<QuizEditorWrapper />} />
                 <Route path=":qid/*" element={<Quiz />} />
+                <Route path=":qid/preview" element={<QuizPreview />} />
             </Routes>
         </div>
     )

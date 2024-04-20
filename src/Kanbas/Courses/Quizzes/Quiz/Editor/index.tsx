@@ -90,8 +90,8 @@ export default function QuizEditor({
   };
 
   // handle preview
-  const handlePreview = async () => {
-    navigate(`/Kanbas/Courses/${courseId}/Quizzes/${qid}/Preview`);
+  const handlePreview = () => {
+    navigate(`/Kanbas/Courses/${courseId}/Quizzes/${qid}/preview`);
   };
 
   return (

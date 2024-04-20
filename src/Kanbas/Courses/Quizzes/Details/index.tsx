@@ -1,4 +1,3 @@
-// Quizzes/QuizDetail.tsx
 import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import * as client from "../client";
@@ -19,6 +18,14 @@ export default function QuizDetail() {
       });
     }
   }, [qid]);
+
+  const handlePreview = () => {
+    navigate(`/Kanbas/Courses/${courseId}/Quizzes/${qid}/preview`);
+  };
+
+  if (!quiz) {
+    return <div>Loading quiz details...</div>;
+  }
 
   const togglePublished = () => {
     if (quiz) {
@@ -43,7 +50,7 @@ export default function QuizDetail() {
           <button onClick={togglePublished} className={`btn ${quiz.published ? 'btn-success' : 'btn-secondary'}`}>
             {quiz.published ? <><FaCheck /> Published</> : 'Unpublished'}
           </button>
-          <button className="btn btn-info" onClick={() => alert('Preview not yet implemented')}>
+          <button className="btn btn-info" onClick={handlePreview} >
             Preview
           </button>
           <Link to={`/Kanbas/Courses/${courseId}/Quizzes/${qid}/edit`}>
